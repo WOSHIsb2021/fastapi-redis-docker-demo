@@ -20,3 +20,7 @@ services:
   my-redis:
     image: redis:alpine
     # Redis 默认端口是 6379，虽然不用映射到 Windows，但容器间需要通
+    volumes:
+      # 格式：- 你的Windows路径 : 容器内路径
+      - ./redis_data:/data
+    command: redis-server --appendonly yes
